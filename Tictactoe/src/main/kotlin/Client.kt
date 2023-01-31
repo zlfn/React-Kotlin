@@ -71,7 +71,6 @@ val Game = FC<Props> {
 
         stepNumber = historyCopy.size
         historyCopy = historyCopy.plusElement(squares)
-        console.log(historyCopy)
         history = historyCopy
         xIsNext = !xIsNext
     }
@@ -79,12 +78,9 @@ val Game = FC<Props> {
     fun jumpTo(step: Int) {
         stepNumber = step
         xIsNext = ((step%2) == 0)
-        console.log("jump to $step")
     }
 
-    console.log("a$stepNumber")
     val current = history[stepNumber].copyOf()
-    console.log("b$stepNumber")
     val winner = calculateWinner(current)
     val moves = List(history.size){ move ->
         val desc =
